@@ -1,9 +1,4 @@
-<<<<<<< HEAD
- 
 
-TODO: Document your project here
-=======
-Remove project title from README.md
 # 🏗️ Sree Varahi Constructions
 
 A modern construction services website built to showcase civil, electrical, and smart infrastructure solutions with a clean UI and contact system.
