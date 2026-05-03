@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 42 28% 96%;
+    --foreground: 216 29% 12%;
+
+    --card: 42 35% 98%;
+    --card-foreground: 216 29% 12%;
+
+    --popover: 42 35% 98%;
+    --popover-foreground: 216 29% 12%;
+
+    --primary: 43 86% 50%;
+    --primary-foreground: 216 33% 10%;
+
+    --secondary: 214 23% 18%;
+    --secondary-foreground: 42 35% 96%;
+
+    --muted: 39 24% 88%;
+    --muted-foreground: 218 12% 38%;
+
+    --accent: 186 34% 31%;
+    --accent-foreground: 42 35% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 39 21% 78%;
+    --input: 39 21% 78%;
+    --ring: 43 86% 50%;
+
+    --radius: 0.625rem;
+
+    --surface: 42 31% 92%;
+    --surface-strong: 216 29% 12%;
+    --surface-strong-foreground: 42 35% 96%;
+    --gold: 43 86% 50%;
+    --gold-deep: 37 80% 36%;
+    --steel: 205 18% 42%;
+    --copper: 18 57% 42%;
+    --success: 147 38% 34%;
+    --gradient-hero: linear-gradient(90deg, hsl(216 34% 7% / 0.92), hsl(216 30% 10% / 0.68), hsl(43 86% 50% / 0.18));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(37 86% 63%), hsl(var(--gold-deep)));
+    --gradient-panel: linear-gradient(145deg, hsl(42 35% 98% / 0.94), hsl(39 24% 88% / 0.78));
+    --shadow-corporate: 0 26px 80px -36px hsl(216 34% 7% / 0.55);
+    --shadow-gold: 0 18px 48px -24px hsl(var(--gold) / 0.8);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  .company-wordmark {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .blueprint-grid {
+    background-image: linear-gradient(hsl(var(--border) / 0.28) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.28) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .reveal-rise {
+    animation: reveal-rise 0.75s ease-out both;
+  }
+    /* ✅ ADD HERE */
+.glow-img {
+    transition: all 0.4s ease;
+    border-radius: 12px;
+  }
+
+ 
+  @keyframes bulbGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 5px #0a0908);
+  }
+  50% {
+    filter: brightness(1.6) drop-shadow(0 0 25px #531515);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 5px #181715);
+  }
+}
+
+.bulb-glow {
+  animation: bulbGlow 2s infinite ease-in-out;
+}
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-rise {
+      animation: none;
+    }
+  }
+}
